@@ -2,9 +2,9 @@
 
 # Declares the VMWare provider 
 provider "vsphere" {
-  user           = "${var.vsphere_user}"
-  password       = "${var.vsphere_password}"
-  vsphere_server = "${var.vsphere_server}"
+  user           = var.vsphere_user
+  password       = var.vsphere_password
+  vsphere_server = var.vsphere_server
   allow_unverified_ssl = true
 }
 
@@ -34,7 +34,7 @@ data "vsphere_virtual_machine" "template" {
 }
 
 resource "vsphere_virtual_machine" "vm" {
-  name             = "${var.servername}"
+  name             = var.servername
   resource_pool_id = "${data.vsphere_compute_cluster.cluster.resource_pool_id}"
   datastore_id     = "${data.vsphere_datastore.datastore.id}"
 
@@ -61,7 +61,7 @@ resource "vsphere_virtual_machine" "vm" {
 
     customize {
       linux_options {
-        host_name = "${var.servername}"
+        host_name = var.servername
         domain    = "test.terraform"
       }
 
