@@ -9,12 +9,9 @@ variable "vsphere_user" {
 variable "vsphere_password" {
     description = "vsphere server password for the environment"
 }
-
-variable "password" {
-    description = "Root account password"
-}
 variable "servername" {
     description = "Server Name"
+    default = "terraform-demo"
 }
 
 
