@@ -20,7 +20,7 @@ data "vsphere_host" "host" {
 
 resource "vsphere_host_port_group" "pg" {
   name                = "PGTerraformTest"
-  host_system_id      = "${data.vsphere_host.esxi_host.id}"
+  host_system_id      = "${data.vsphere_host.vsphere_host.id}"
   virtual_switch_name = "vSwitch0"
 
   vlan_id = 4095
