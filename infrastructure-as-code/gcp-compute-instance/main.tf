@@ -67,7 +67,7 @@ resource "google_compute_instance" "demo" {
       // Ephemeral IP
     }
   }
-  metadata {
+  metadata = {
     sshKeys = "${var.ssh_user}:${var.ssh_public_key}"
   }
 }
