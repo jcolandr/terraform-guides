@@ -59,9 +59,7 @@ resource "google_compute_instance" "demo" {
       image = "${var.image}"
     }
   }
-  metadata {
-    sshKeys = "${var.ssh_user}:${var.ssh_public_key}"
-  }
+
   network_interface {
     network = "default"
 
@@ -69,7 +67,9 @@ resource "google_compute_instance" "demo" {
       // Ephemeral IP
     }
   }
-
+  metadata {
+    sshKeys = "${var.ssh_user}:${var.ssh_public_key}"
+  }
 }
 
 output "external_ip"{
