@@ -18,23 +18,13 @@ data "vsphere_host" "host" {
   datacenter_id = "${data.vsphere_datacenter.datacenter.id}"
 }
 
-resource "vsphere_host_virtual_switch" "switch" {
-  name           = "vSwitchTerraformTest"
-  host_system_id = "${data.vsphere_host.host.id}"
+resource "vsphere_host_port_group" "pg" {
+  name                = "PGTerraformTest"
+  host_system_id      = "${data.vsphere_host.esxi_host.id}"
+  virtual_switch_name = "vSwitch0"
 
-  network_adapters = ["vmnic0", "vmnic1"]
+  vlan_id = 4095
 
-  active_nics    = ["vmnic0"]
-  standby_nics   = ["vmnic1"]
-  teaming_policy = "failover_explicit"
-
-  allow_promiscuous      = false
-  allow_forged_transmits = false
-  allow_mac_changes      = false
-
-  shaping_enabled           = true
-  shaping_average_bandwidth = 50000000
-  shaping_peak_bandwidth    = 100000000
-  shaping_burst_size        = 1000000000
+  allow_promiscuous = true
 }
 
