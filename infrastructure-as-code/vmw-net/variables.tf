@@ -12,6 +12,6 @@ variable "vsphere_password" {
 
 variable "vsphere_pg_name" {
     description = "standard vm port group vsphere_pg_name"
-    default = "PGTerraformTest"
+    default = "WCPG"
 }
 
