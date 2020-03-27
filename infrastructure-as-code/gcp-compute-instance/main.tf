@@ -6,6 +6,14 @@ variable "gcp_credentials" {
   description = "GCP credentials needed by google provider"
 }
 
+variable "ssh_public_key" {
+  description = "ssh public key"
+}
+
+variable "ssh_user" {
+  description = "ssh user"
+}
+
 variable "gcp_project" {
   description = "GCP project name"
 }
@@ -51,7 +59,9 @@ resource "google_compute_instance" "demo" {
       image = "${var.image}"
     }
   }
-
+  metadata {
+    sshKeys = "${var.ssh_user}:${var.ssh_public_key}"
+  }
   network_interface {
     network = "default"
 
