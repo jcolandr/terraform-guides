@@ -9,9 +9,9 @@ variable "vsphere_user" {
 variable "vsphere_password" {
     description = "vsphere server password for the environment"
 }
-variable "servername" {
-    description = "Server Name"
-    default = "terraform-demo"
-}
 
+variable "vsphere_pg_name" {
+    description = "standard vm port group vsphere_pg_name"
+    default = "PGTerraformTest"
+}
 

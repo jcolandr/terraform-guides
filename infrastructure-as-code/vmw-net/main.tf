@@ -19,7 +19,7 @@ data "vsphere_host" "host" {
 }
 
 resource "vsphere_host_port_group" "pg" {
-  name                = "PGTerraformTest"
+  name                = "${var.vsphere_pg_name}"
   host_system_id      = "${data.vsphere_host.host.id}"
   virtual_switch_name = "vSwitch0"
 
