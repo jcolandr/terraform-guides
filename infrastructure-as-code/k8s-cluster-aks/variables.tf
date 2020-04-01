@@ -13,7 +13,7 @@ variable "dns_prefix" {
 
 variable "k8s_version" {
   description = "Version of Kubernetes to use"
-  default = "1.12.7"
+  default = "1.15.10"
 }
 
 variable "admin_user" {
@@ -28,7 +28,7 @@ variable "agent_pool_name" {
 
 variable "agent_count" {
   description = "Number of agents to create"
-  default = 1
+  default = 3
 }
 
 variable "vm_size" {
