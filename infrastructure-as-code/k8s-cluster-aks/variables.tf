@@ -11,6 +11,10 @@ variable "dns_prefix" {
   description = "DNS prefix for your cluster"
 }
 
+variable "cluster_name" {
+  description = "name of aks cluster"
+}
+
 variable "k8s_version" {
   description = "Version of Kubernetes to use"
   default = "1.15.10"
