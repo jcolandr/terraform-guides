@@ -19,6 +19,7 @@ provider "azurerm" {
   tenant_id       = "${data.vault_generic_secret.azure_credentials.data["tenant_id"]}"
   client_id       = "${data.vault_generic_secret.azure_credentials.data["client_id"]}"
   client_secret   = "${data.vault_generic_secret.azure_credentials.data["client_secret"]}"
+  features {}
 }
 
 # Azure Resource Group
@@ -42,9 +43,9 @@ resource "azurerm_kubernetes_cluster" "k8sexample" {
     }
   }
 
-  agent_pool_profile {
+  default_node_pool {
     name       = "${var.agent_pool_name}"
-    count      =  "${var.agent_count}"
+    node_count      =  "${var.agent_count}"
     os_type    = "${var.os_type}"
     os_disk_size_gb = "${var.os_disk_size}"
     vm_size    = "${var.vm_size}"
