@@ -62,4 +62,5 @@ variable "vault_user" {
 
 variable "vault_addr" {
   description = "Address of Vault server including port that is used in the associated k8s-vault-config and k8s-services workspaces"
+  default = "http://35.211.192.21:8200"
 }
