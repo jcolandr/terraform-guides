@@ -46,7 +46,7 @@ resource "azurerm_kubernetes_cluster" "k8sexample" {
   default_node_pool {
     name       = "${var.agent_pool_name}"
     node_count      =  "${var.agent_count}"
-    os_type    = "${var.os_type}"
+    # os_type    = "${var.os_type}"
     os_disk_size_gb = "${var.os_disk_size}"
     vm_size    = "${var.vm_size}"
   }
