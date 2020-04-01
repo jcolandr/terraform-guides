@@ -7,7 +7,7 @@ resource "tls_private_key" "ssh_key" {
 }
 
 provider "vault" {
-  address = "${var.vault_addr}"
+  # address = "${var.vault_addr}"
 }
 
 data "vault_generic_secret" "azure_credentials" {
