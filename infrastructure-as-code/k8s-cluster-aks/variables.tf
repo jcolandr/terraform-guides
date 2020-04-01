@@ -47,6 +47,7 @@ variable "os_disk_size" {
 }
 
 variable "environment" {
+
   description = "value passed to Environment tag and used in name of Vault k8s auth backend in the associated k8s-vault-config workspace"
   default = "aks-dev"
 }
@@ -55,6 +56,6 @@ variable "vault_user" {
   description = "Vault userid: determines location of secrets and affects path of k8s auth backend that is created in the associated k8s-vault-config workspace"
 }
 
-#variable "vault_addr" {
-#  description = "Address of Vault server including port that is used in the associated k8s-vault-config and k8s-services workspaces"
-#}
+variable "vault_addr" {
+  description = "Address of Vault server including port that is used in the associated k8s-vault-config and k8s-services workspaces"
+}
