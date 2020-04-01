@@ -30,6 +30,6 @@ output "vault_user" {
   value = "${var.vault_user}"
 }
 
-output "vault_addr" {
-  value = "${var.vault_addr}"
-}
+#output "vault_addr" {
+#  value = "${var.vault_addr}"
+#}
