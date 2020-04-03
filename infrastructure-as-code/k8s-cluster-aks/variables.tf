@@ -66,14 +66,14 @@ variable "vault_addr" {
 }
 
 variable "address_space" {
-  descritpion = "network subnet of vnet"
+  description = "network subnet of vnet"
 }
 
 variable "pod_cidr" {
-  descritpion = "The CIDR to use for pod IP addresses and within the address space of vnet"
+  description = "The CIDR to use for pod IP addresses and within the address space of vnet"
 }
 variable "service_cidr" {
-  descritpion = "The Network Range used by the Kubernetes service and within the address space of vnet"
+  description = "The Network Range used by the Kubernetes service and within the address space of vnet"
 }
 
 variable "dns_service_ip" {
