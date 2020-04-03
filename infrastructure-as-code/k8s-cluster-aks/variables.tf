@@ -75,11 +75,10 @@ variable "pod_cidr" {
 variable "service_cidr" {
   description = "The Network Range used by the Kubernetes service and within the address space of vnet"
 }
-
 variable "dns_service_ip" {
   description = "IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns)."
 }
 
 variable "node_subnet" {
-  description = "subnet for nodes"
+  description = "subnet for nodes mus be within vnet address space"
 }
