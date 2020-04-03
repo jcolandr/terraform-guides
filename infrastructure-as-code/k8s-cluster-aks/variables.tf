@@ -80,5 +80,5 @@ variable "dns_service_ip" {
 }
 
 variable "node_subnet" {
-  description = "subnet for nodes mus be within vnet address space"
+  description = "subnet for nodes mus be within vnet address space - don't overlap"
 }
