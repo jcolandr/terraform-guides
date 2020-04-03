@@ -69,7 +69,6 @@ resource "azurerm_kubernetes_cluster" "k8sexample" {
   
   network_profile {
     network_plugin = "azure"
-    # pod_cidr = "${var.pod_cidr}"
     service_cidr = "${var.service_cidr}"
     docker_bridge_cidr = "172.17.0.1/16"
     dns_service_ip = "${var.dns_service_ip}"
