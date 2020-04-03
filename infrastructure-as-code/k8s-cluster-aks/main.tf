@@ -28,6 +28,14 @@ resource "azurerm_resource_group" "k8sexample" {
   location = "${var.azure_location}"
 }
 
+
+resource "azurerm_virtual_network" "k8sexample" {
+  name                = "${var.dns_prefix}-network"
+  location            = "${azurerm_resource_group.example.location}"
+  resource_group_name = "${azurerm_resource_group.example.name}"
+  address_space       = ["${var.address_space}"]
+}
+
 # Azure Container Service (AKS) Cluster
 resource "azurerm_kubernetes_cluster" "k8sexample" {
   name = "${var.cluster_name}"
@@ -49,6 +57,14 @@ resource "azurerm_kubernetes_cluster" "k8sexample" {
     # os_type    = "${var.os_type}"
     os_disk_size_gb = "${var.os_disk_size}"
     vm_size    = "${var.vm_size}"
+  }
+  
+  network_profile {
+    network_plugin = "kubenet"
+    pod_cidr = "${var.pod_cidr}"
+    service_cidr = "${var.service_cidr}"
+    docker_bridge_cidr = "172.17.0.1/16"
+    dns_service_ip = "${var.dns_service_ip}"
   }
 
   service_principal {

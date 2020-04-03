@@ -64,3 +64,19 @@ variable "vault_addr" {
   description = "Address of Vault server including port that is used in the associated k8s-vault-config and k8s-services workspaces"
   default = "http://35.211.192.21:8200"
 }
+
+variable "address_space" {
+  descritpion = "network subnet of vnet"
+}
+
+variable "pod_cidr" {
+  descritpion = "The CIDR to use for pod IP addresses and within the address space of vnet"
+}
+variable "service_cidr" {
+  descritpion = "The Network Range used by the Kubernetes service and within the address space of vnet"
+}
+
+variable "dns_service_ip" {
+  description = "IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns)."
+}
+
