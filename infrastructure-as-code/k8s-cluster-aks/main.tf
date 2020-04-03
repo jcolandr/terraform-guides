@@ -36,8 +36,8 @@ resource "azurerm_virtual_network" "k8sexample" {
   address_space       = ["${var.address_space}"]
 }
 
-resource "azurerm_subnet" "service-cluster-subnet" {
-  name                      = "${var.dns_prefix}-service-cluster-subnet"
+resource "azurerm_subnet" "k8sexample-subnet" {
+  name                      = "${var.dns_prefix}-node-subnet"
   address_prefix            = "${var.node_subnet}"
   resource_group_name       = "${azurerm_resource_group.k8sexample.name}"
   virtual_network_name      = "${azurerm_virtual_network.k8sexample.name}"
@@ -64,7 +64,7 @@ resource "azurerm_kubernetes_cluster" "k8sexample" {
     # os_type    = "${var.os_type}"
     os_disk_size_gb = "${var.os_disk_size}"
     vm_size    = "${var.vm_size}"
-    vnet_subnet_id = 
+    vnet_subnet_id = "${azurerm_subnet.k8sexample-subnet.id}"
   }
   
   network_profile {
