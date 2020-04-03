@@ -80,3 +80,6 @@ variable "dns_service_ip" {
   description = "IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns)."
 }
 
+variable "node_subnet" {
+  description = "subnet for nodes"
+}
