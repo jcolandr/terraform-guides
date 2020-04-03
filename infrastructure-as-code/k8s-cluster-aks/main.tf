@@ -30,7 +30,7 @@ resource "azurerm_resource_group" "k8sexample" {
 
 
 resource "azurerm_virtual_network" "k8sexample" {
-  name                = "${var.dns_prefix}-network"
+  name                = "${var.dns_prefix}-net"
   location            = "${azurerm_resource_group.k8sexample.location}"
   resource_group_name = "${azurerm_resource_group.k8sexample.name}"
   address_space       = ["${var.address_space}"]
