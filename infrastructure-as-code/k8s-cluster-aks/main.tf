@@ -26,8 +26,11 @@ provider "azurerm" {
 resource "azurerm_resource_group" "k8sexample" {
   name     = "${var.resource_group_name}"
   location = "${var.azure_location}"
+  tags {
+    Environment = "${var.environment}"
+    DoNotDelete = "true"
+  }
 }
-
 
 resource "azurerm_virtual_network" "k8sexample" {
   name                = "${var.dns_prefix}-net"
@@ -81,5 +84,6 @@ resource "azurerm_kubernetes_cluster" "k8sexample" {
 
   tags {
     Environment = "${var.environment}"
+    DoNotDelete = "true"
   }
 }
