@@ -23,7 +23,7 @@ provider "azurerm" {
 }
 
 # Azure Resource Group
-resource "azurerm_resource_group" "cisco" {
+resource "azurerm_resource_group" "k8sexample" {
   name     = "${var.resource_group_name}"
   location = "${var.azure_location}"
   tags {
