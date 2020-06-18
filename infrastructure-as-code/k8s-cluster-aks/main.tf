@@ -48,7 +48,7 @@ resource "azurerm_subnet" "k8sexample-subnet" {
 
 # Azure Container Service (AKS) Cluster
 resource "azurerm_kubernetes_cluster" "k8sexample" {
-  name = "${var.cluster_name}"
+  name = "labcorp"
   location = "${azurerm_resource_group.k8sexample.location}"
   resource_group_name = "${azurerm_resource_group.k8sexample.name}"
   dns_prefix = "${var.dns_prefix}"
